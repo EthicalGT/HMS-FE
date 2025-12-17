@@ -13,7 +13,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LandingPageContainer />} />
-        <Route path="/admin" element={<AdminPanelContainer />} />
+        <Route path="/admin" element={<AdminSidebarContainer />} />
         <Route path="/action" element={<ActionContainer />} />
       </Routes>
     </>
