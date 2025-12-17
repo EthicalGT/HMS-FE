@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import WeeklyReport from "../components/WeeklyReport.jsx";
 import AdminPanelContainer from "../components/AdminPanelContainer.jsx";
-
+   
 import {
   Home,
   Users,
@@ -23,6 +23,7 @@ import {
 
 export default function AdminSidebarContainer() {
   return (
+
     <div className="app">
       {/* Sidebar */}
       <aside className="sidebar">
@@ -64,9 +65,11 @@ export default function AdminSidebarContainer() {
       {/* Main */}
       <main className="main">
         {/* Top Bar */}
+       
+
         <div className="topbar">
           <div className="search-box">
-            <Search size={16} />
+            <Search size={16} className="search-icon"/>
             <input
               type="text"
               placeholder="Search hawkers, vendors, orders..."
@@ -161,9 +164,12 @@ export default function AdminSidebarContainer() {
           {/* <WeekliSale dark={true}  /> */}
            <WeeklyReport/> 
 
+
           {/* Inventory / Notifications / Activity */}
-          { /* <AdminPanelContainer/> */ }
+             <AdminPanelContainer/>
+        
         </div>
+     
       </main>
     </div>
   );

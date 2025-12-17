@@ -257,6 +257,11 @@ h2 {
   .app {
     flex-direction: column;
   }
+  @media (max-width: 768px) {
+  .search-icon {
+    display: none;
+  }
+}
 
   .sidebar {
     width: 100%;

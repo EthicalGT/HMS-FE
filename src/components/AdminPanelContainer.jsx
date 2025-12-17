@@ -8,12 +8,9 @@ import {
   AlertTriangle,
   AlertCircle,
 } from "lucide-react";
-import AdminSidebarContainer from "./AdminSidebarContainer";
 
 export default function AdminPanelContainer() {
   return (
-    <>
-    <AdminSidebarContainer />
     <div className="dashboard">
       <div className="dashboard-grid">
         {/* Inventory Status */}
@@ -43,7 +40,6 @@ export default function AdminPanelContainer() {
         </Card>
       </div>
     </div>
-    </>
   );
 }
 
@@ -103,4 +99,3 @@ function ActivityItem({ title, meta, time }) {
     </div>
   );
 }
-

@@ -1,20 +1,15 @@
 import React, { useState } from "react";
-import "../assets/css/WeeklyReport.css";
+import "../assets/css/WeeklyReport.css"; // Make sure path is correct
 
 export default function WeeklyReport({ dark = false }) {
   const weekly = [1200, 2100, 1800, 2600, 3200, 4000, 2800];
-  const monthly = [18000, 22000, 19500, 26000, 31000, 42000, 36000];
-  const yearly = [2.1, 2.4, 2.2, 2.8, 3.1, 3.6, 3.3];
-
   const labels = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const [mode, setMode] = useState("weekly");
   const [showValues, setShowValues] = useState(false);
   const [hover, setHover] = useState(null);
 
-  const data =
-    mode === "weekly" ? weekly : mode === "monthly" ? monthly : yearly;
-
+  const data = weekly; // For now only weekly
   const max = Math.max(...data);
 
   const points = data.map((v, i) => {
@@ -31,14 +26,10 @@ export default function WeeklyReport({ dark = false }) {
 
   return (
     <div className={`weekly-wrapper ${dark ? "dark" : ""}`}>
-      {/* LEFT */}
+      {/* Weekly Sales Card */}
       <section className="weekly-card">
         <div className="weekly-header">
-          <div>
-            <h3>Sales Overview</h3>
-            <p className="muted">{mode.toUpperCase()} performance</p>
-          </div>
-
+          <h3>Sales Overview</h3>
           <div className="controls">
             <button onClick={() => setMode("weekly")}>Weekly</button>
             <button onClick={() => setMode("monthly")}>Monthly</button>
@@ -59,7 +50,6 @@ export default function WeeklyReport({ dark = false }) {
               points={points.map((p) => `${p.x},${p.y}`).join(" ")}
               className="chart-line"
             />
-
             {points.map((p, i) => (
               <g
                 key={i}
@@ -67,37 +57,19 @@ export default function WeeklyReport({ dark = false }) {
                 onMouseLeave={() => setHover(null)}
               >
                 <circle cx={p.x} cy={p.y} r="5" fill={getColor(p.value)} />
-
                 {hover === i && (
-                  <g>
-                    <rect
-                      x={p.x - 28}
-                      y={p.y - 36}
-                      rx="6"
-                      width="56"
-                      height="22"
-                      className="tooltip-bg"
-                    />
-                    <text
-                      x={p.x}
-                      y={p.y - 21}
-                      textAnchor="middle"
-                      className="tooltip-text"
-                    >
-                      {mode === "yearly" ? `${p.value}L` : `₹${p.value}`}
-                    </text>
-                  </g>
+                  <text x={p.x} y={p.y - 10} textAnchor="middle" fill="#000">
+                    ₹{p.value}
+                  </text>
                 )}
-
                 {showValues && (
                   <text
                     x={p.x}
-                    y={p.y - 10}
+                    y={p.y - 15}
                     textAnchor="middle"
                     fill={getColor(p.value)}
-                    className="chart-value"
                   >
-                    {mode === "yearly" ? `${p.value}L` : `₹${p.value}`}
+                    ₹{p.value}
                   </text>
                 )}
               </g>
@@ -112,16 +84,12 @@ export default function WeeklyReport({ dark = false }) {
         </div>
       </section>
 
-      {/* RIGHT */}
+      {/* Tracking Card */}
       <section className="tracking-card">
         <div className="tracking-header">
-          <div>
-            <h3>Live Tracking</h3>
-            <p className="muted">24 hawkers active now</p>
-          </div>
+          <h3>Live Tracking</h3>
           <button className="link-btn">Full Map</button>
         </div>
-
         <div className="tracking-radar">
           <div className="circle circle-1" />
           <div className="circle circle-2" />
@@ -133,9 +101,18 @@ export default function WeeklyReport({ dark = false }) {
         </div>
 
         <ul className="tracking-list">
-          <li><span className="status online" />ABC.<span className="zone">Zone A</span></li>
-          <li><span className="status online" />XYZ.<span className="zone">Zone B</span></li>
-          <li><span className="status busy" />PQR.<span className="zone">Zone A</span></li>
+          <li>
+            <span className="status online" />
+            ABC.<span className="zone">Zone A</span>
+          </li>
+          <li>
+            <span className="status online" />
+            XYZ.<span className="zone">Zone B</span>
+          </li>
+          <li>
+            <span className="status busy" />
+            PQR.<span className="zone">Zone A</span>
+          </li>
         </ul>
       </section>
     </div>

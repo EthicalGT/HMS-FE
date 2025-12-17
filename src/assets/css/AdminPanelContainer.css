@@ -10,6 +10,15 @@
   padding: 24px;
   background: #f5f7fb;
 }
+.dashboard-content{
+  color: #2563eb;
+}
+h2{
+  color:#2563eb;
+}
+h3{
+  color:#2563eb
+}
 
 .dashboard-grid {
   max-width: 1200px;
@@ -24,6 +33,7 @@
   border-radius: 16px;
   padding: 20px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+
 }
 
 .card-header {
@@ -38,6 +48,7 @@
   align-items: center;
   gap: 8px;
   font-weight: 600;
+  color: #2563eb;
 }
 
 .card-icon {
@@ -119,3 +130,164 @@
 .activity-meta { font-size: 12px; color: #6b7280; }
 .activity-time { font-size: 11px; color: #9ca3af; }
 .activity-amount { font-size: 13px; font-weight: 600; }
+/* ===========================
+   RESPONSIVE IMPROVEMENTS
+=========================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .dashboard {
+    padding: 20px;
+  }
+
+  .dashboard-grid {
+    gap: 20px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+
+/* Small Tablets & Large Mobiles */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 16px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .card-link {
+    font-size: 14px;
+  }
+
+  .inventory-top {
+    font-size: 13px;
+  }
+
+  .inventory-status {
+    font-size: 11px;
+  }
+
+  .activity-item {
+    gap: 10px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 12px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .card-link {
+    font-size: 13px;
+  }
+
+  .inventory-top {
+    font-size: 12px;
+  }
+
+  .inventory-value {
+    font-size: 11px;
+  }
+
+  .progress {
+    height: 5px;
+  }
+
+  .progress-bar {
+    height: 5px;
+  }
+
+  .notification {
+    padding: 10px;
+  }
+
+  .notification-title {
+    font-size: 13px;
+  }
+
+  .notification-desc {
+    font-size: 11px;
+  }
+
+  .activity-title {
+    font-size: 13px;
+  }
+
+  .activity-meta {
+    font-size: 11px;
+  }
+
+  .activity-amount {
+    font-size: 12px;
+  }
+}
+
+/* Extra Small Devices (≤360px) */
+@media (max-width: 360px) {
+  .dashboard {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .inventory-top {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .activity-item {
+    gap: 8px;
+  }
+
+  .activity-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
