@@ -1,14 +1,21 @@
 import { useState } from 'react'
 import './App.css'
+
 import AdminPanelContainer from './components/AdminPanelContainer'
+import ActionContainer from './components/ActionContainer'
+import LandingPageContainer from './components/LandingPageContainer'
 import AdminSidebarContainer from './components/AdminSidebarContainer'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Routes, Route } from 'react-router-dom' 
 
+function App() {
   return (
     <>
-    <AdminSidebarContainer />
+      <Routes>
+        <Route path="/" element={<LandingPageContainer />} />
+        <Route path="/admin" element={<AdminPanelContainer />} />
+        <Route path="/action" element={<ActionContainer />} />
+      </Routes>
     </>
   )
 }
