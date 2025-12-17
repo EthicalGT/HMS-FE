@@ -36,17 +36,41 @@ function ActionContainer() {
     setLoginData({ ...loginData, [e.target.name]: e.target.value });
   };
 
-  const handleSignupSubmit = async (e) => {
+  const handleSignupSubmitHawker = async (e) => {
     e.preventDefault();
 
-    const res = await registerUser({ ...signupData, role });
+    const res = await registerHawkerUser({ ...signupData, role });
     alert(res.message || "Registered");
   };
 
-  const handleLoginSubmit = async (e) => {
+  
+
+  const handleLoginSubmitHawker = async (e) => {
     e.preventDefault();
 
-    const res = await loginUser({ ...loginData, role });
+    const res = await loginHawkerUser({ ...loginData, role });
+
+    if (res.token) {
+      localStorage.setItem("token", res.token);
+      alert("Login successful");
+    } else {
+      alert(res.message || "Login failed");
+    }
+  };
+
+  const handleSignupSubmitVendor = async (e) => {
+    e.preventDefault();
+
+    const res = await registerVendorUser({ ...signupData, role });
+    alert(res.message || "Registered");
+  };
+
+  
+
+  const handleLoginSubmitVendor = async (e) => {
+    e.preventDefault();
+
+    const res = await loginVendorUser({ ...loginData, role });
 
     if (res.token) {
       localStorage.setItem("token", res.token);
@@ -95,16 +119,16 @@ function ActionContainer() {
 
         {/* ---------- SIGN UP ---------- */}
         {activeTab === "signup" && (
-          <form className="form" onSubmit={handleSignupSubmit}>
+          <form className="form" onSubmit={handleSignupSubmitHawker}>
             <h4>PERSONAL DETAILS</h4>
 
             <input name="full_name" placeholder="Full Name" onChange={handleSignupChange} />
-            <input name="phone" placeholder="Phone Number" onChange={handleSignupChange} />
+            <input name="phone_number" placeholder="Phone Number" onChange={handleSignupChange} />
             <input name="email" type="email" placeholder="Email" onChange={handleSignupChange} />
             <input name="password" type="password" placeholder="Password" onChange={handleSignupChange} />
 
             <h4>IDENTITY</h4>
-            <input name="aadhar" placeholder="Aadhaar Number" onChange={handleSignupChange} />
+            <input name="aadhar_number" placeholder="Aadhaar Number" onChange={handleSignupChange} />
 
             <h4>ADDRESS</h4>
             <textarea name="address" placeholder="Address" onChange={handleSignupChange}></textarea>
@@ -120,7 +144,7 @@ function ActionContainer() {
 
         {/* ---------- SIGN IN ---------- */}
         {activeTab === "signin" && (
-          <form className="form" onSubmit={handleLoginSubmit}>
+          <form className="form" onSubmit={handleLoginSubmitHawker}>
             <h4>LOGIN</h4>
 
             <input
