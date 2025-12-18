@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function ActionContainer() {
-  const [activeTab, setActiveTab] = useState("signup");
+  const [activeTab, setActiveTab] = useState("signin");
   const [role, setRole] = useState("hawker");
 
   /* ---------- SIGNUP STATE ---------- */
@@ -72,7 +72,7 @@ function ActionContainer() {
       return showError(
         "Password must have uppercase, lowercase, number & special character"
       ),
-      false;
+        false;
 
     if (!regex.aadhar_number.test(signupData.aadhar_number))
       return showError("Aadhaar must be 12 digits"), false;
@@ -136,8 +136,8 @@ function ActionContainer() {
 
       <div className="card">
         <div className="card-header">
-          <h2>Hawker & Vendor Portal</h2>
-          <p>Register or sign in to manage your profile</p>
+          <h2>HMS Sign Up/Sign In</h2>
+          <p>HMS service usage needs authentication kindly verify with your credentials.</p>
         </div>
 
         <div className="tabs">
@@ -202,7 +202,7 @@ function ActionContainer() {
 
         {activeTab === "signin" && (
           <form className="form" onSubmit={handleLoginSubmitHawker}>
-            <h4>LOGIN</h4>
+            <h4>VERIFY CREDENTIALS</h4>
 
             <input name="email" type="email" placeholder="Email" onChange={handleLoginChange} />
             <input name="password" type="password" placeholder="Password" onChange={handleLoginChange} />

@@ -2,7 +2,7 @@ import React from "react";
 import "../App.css";
 import WeeklyReport from "../components/WeeklyReport.jsx";
 import AdminPanelContainer from "../components/AdminPanelContainer.jsx";
-   
+
 import {
   Home,
   Users,
@@ -28,7 +28,7 @@ export default function AdminSidebarContainer() {
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="brand">
-          <Boxes size={20} /> HawkFlow
+          <Boxes size={20} /> HMS Admin
         </div>
 
         <ul>
@@ -65,11 +65,11 @@ export default function AdminSidebarContainer() {
       {/* Main */}
       <main className="main">
         {/* Top Bar */}
-       
+
 
         <div className="topbar">
           <div className="search-box">
-            <Search size={16} className="search-icon"/>
+            <Search size={16} className="search-icon" />
             <input
               type="text"
               placeholder="Search hawkers, vendors, orders..."
@@ -78,10 +78,6 @@ export default function AdminSidebarContainer() {
 
           <div className="top-right">
             <Bell size={18} />
-            <div className="user">
-              <span className="avatar">HMS</span>
-              <span>HMS</span>
-            </div>
           </div>
         </div>
 
@@ -127,9 +123,9 @@ export default function AdminSidebarContainer() {
             <p>Common tasks at your fingertips</p>
 
             <div className="actions">
-              <div className="action primary">
+              <div className="action">
                 <Boxes size={20} />
-                
+
                 Assign Stock
                 <small>Allocate inventory</small>
               </div>
@@ -162,14 +158,14 @@ export default function AdminSidebarContainer() {
 
           {/* Weekly Sale */}
           {/* <WeekliSale dark={true}  /> */}
-           <WeeklyReport/> 
+          <WeeklyReport />
 
 
           {/* Inventory / Notifications / Activity */}
-             <AdminPanelContainer/>
-        
+          <AdminPanelContainer />
+
         </div>
-     
+
       </main>
     </div>
   );

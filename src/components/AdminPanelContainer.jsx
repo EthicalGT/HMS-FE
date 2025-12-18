@@ -51,7 +51,6 @@ function Card({ title, icon, link, children }) {
           <span className="card-icon">{icon}</span>
           {title}
         </div>
-        <span className="card-link">{link}</span>
       </div>
       <div className="card-content">{children}</div>
     </div>
