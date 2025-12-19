@@ -2,16 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
   background: #f5f7fb;
 }
 
-/* =========================
-   2. App Layout
-========================= */
 .app {
   display: flex;
   min-height: 100vh;

@@ -1,4 +1,4 @@
-const BASE_URL = "http://127.0.0.1:8000/api"; 
+const BASE_URL = "http://127.0.0.1:8000/api";
 
 export async function registerHawkerUser(data) {
   try {
@@ -9,14 +9,14 @@ export async function registerHawkerUser(data) {
       },
       body: JSON.stringify(data),
     });
-    
+
     if (!res.ok) {
       let errorMessage = "Server error. Please try again later.";
 
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) {}
+      } catch (_) { }
 
       return {
         success: false,
@@ -50,7 +50,7 @@ export async function loginHawkerUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) {}
+      } catch (_) { }
 
       return {
         success: false,
@@ -83,7 +83,7 @@ export async function registerVendorUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) {}
+      } catch (_) { }
 
       return {
         success: false,
@@ -116,7 +116,7 @@ export async function loginVendorUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) {}
+      } catch (_) { }
 
       return {
         success: false,
