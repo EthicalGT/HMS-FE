@@ -54,7 +54,7 @@ export default function DashboardContainer() {
 
                     <div className="grid">
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">📦</div>
                                 <span>Total Products Listed</span>
                             </div>
@@ -63,7 +63,7 @@ export default function DashboardContainer() {
                         </div>
 
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">📋</div>
                                 <span>Active Purchase Orders</span>
                                 <span className="badge active-badge">Active</span>
@@ -72,7 +72,7 @@ export default function DashboardContainer() {
                         </div>
 
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">🚚</div>
                                 <span>Items Supplied (This Month)</span>
                             </div>
@@ -81,7 +81,7 @@ export default function DashboardContainer() {
                         </div>
 
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">⏳</div>
                                 <span>Pending Deliveries</span>
                                 <span className="badge pending-badge">Pending</span>
@@ -90,7 +90,7 @@ export default function DashboardContainer() {
                         </div>
 
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">₹</div>
                                 <span>Total Revenue</span>
                             </div>
@@ -99,7 +99,7 @@ export default function DashboardContainer() {
                         </div>
 
                         <div className="card">
-                            <div className="card-header">
+                            <div className="card-container">
                                 <div className="icon">💳</div>
                                 <span>Payment Status</span>
                             </div>

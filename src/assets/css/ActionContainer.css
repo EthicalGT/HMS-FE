@@ -183,11 +183,15 @@ select {
   border: 1px solid #ccc;
   outline: none;
 
+
 }
 
-select:hover {
+/*select:hover {
   border: 1px solid #2563eb;
-}
+  background-color: #2563eb;
+  color: #fff;
+
+}*/
 
 /* Mobile */
 @media (max-width: 500px) {
@@ -221,6 +225,45 @@ select:hover {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px 10px 10px 42px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  pointer-events: none;
+}
+
+#stateSelector :hover {
+  background-color: white;
+}
+
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #2563eb;
+}
+
+.input-group input:focus~.input-icon,
+.input-group select:focus~.input-icon {
+  color: #2563eb;
 }
 
 /* Responsive */
