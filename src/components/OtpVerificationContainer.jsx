@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/OtpVerificationContainer.css";
+import { verifyOTP } from "../api/otp_verify";
 
 const OtpVerification = () => {
     const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -11,7 +12,6 @@ const OtpVerification = () => {
             newOtp[index] = value;
             setOtp(newOtp);
 
-            // Move to next input if value entered
             if (value && index < 5) {
                 const nextInput = document.getElementById(`otp-${index + 1}`);
                 if (nextInput) nextInput.focus();
@@ -19,9 +19,11 @@ const OtpVerification = () => {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert("OTP entered: " + otp.join(""));
+        let myotp = otp.join();
+        const res = await verifyOTP({ myotp });
+        res?.success ? window.location = res.redirectTO : showError(res.message);
     };
 
     const handleResend = () => {
