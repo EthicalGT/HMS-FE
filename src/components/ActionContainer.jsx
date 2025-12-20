@@ -106,12 +106,22 @@ function ActionContainer() {
 
   /* ---------- SUBMIT ---------- */
   const handleSignupSubmitHawker = async (e) => {
-    e.preventDefault();
-    if (!validateSignup()) return;
+  e.preventDefault();
+  if (!validateSignup()) return;
 
-    const res = await registerHawkerUser({ ...signupData, role });
-    res?.success ? showSuccess("Registration successful 🎉") : showError(res.message);
-  };
+  const res = await registerHawkerUser({ ...signupData, role });
+
+  if (res.status === "success") {
+    showSuccess(res.message || "Registration successful 🎉");
+
+    if (res.redirectTo) {
+      window.location.href = res.redirectTo;
+    }
+  } else {
+    showError(res?.message || "Registration failed");
+  }
+};
+
 
   const handleLoginSubmitHawker = async (e) => {
     e.preventDefault();

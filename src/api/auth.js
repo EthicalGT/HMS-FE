@@ -8,7 +8,7 @@ export async function registerHawkerUser(data) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-      credentials: include,
+      credentials: "include",
     });
 
     if (!res.ok) {
@@ -43,7 +43,7 @@ export async function loginHawkerUser(data) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-      credentials: include,
+      credentials: "include",
     });
 
     if (!res.ok) {
