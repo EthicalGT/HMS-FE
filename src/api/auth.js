@@ -6,7 +6,7 @@ export async function registerHawkerUser(data) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(data),
     });
@@ -17,7 +17,7 @@ export async function registerHawkerUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) { }
+      } catch (_) {}
 
       return {
         success: false,
@@ -26,7 +26,6 @@ export async function registerHawkerUser(data) {
     }
 
     return await res.json();
-
   } catch (error) {
     return {
       success: false,
@@ -41,7 +40,7 @@ export async function loginHawkerUser(data) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(data),
     });
@@ -52,7 +51,7 @@ export async function loginHawkerUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) { }
+      } catch (_) {}
 
       return {
         success: false,
@@ -75,7 +74,7 @@ export async function registerVendorUser(data) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(data),
     });
@@ -86,7 +85,7 @@ export async function registerVendorUser(data) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) { }
+      } catch (_) {}
 
       return {
         success: false,
@@ -95,7 +94,6 @@ export async function registerVendorUser(data) {
     }
 
     return await res.json();
-
   } catch (error) {
     return {
       success: false,
@@ -110,7 +108,7 @@ export async function loginVendorUser(otp, email) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify({ otp, email }),
     });
@@ -121,7 +119,7 @@ export async function loginVendorUser(otp, email) {
       try {
         const errorData = await res.json();
         errorMessage = errorData.message || errorMessage;
-      } catch (_) { }
+      } catch (_) {}
 
       return {
         success: false,
@@ -138,19 +136,17 @@ export async function loginVendorUser(otp, email) {
   }
 }
 
-
-
 export async function getCurrentVerificationUser() {
   try {
     const res = await fetch(`${BASE_URL}/current_otp_user`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json",
+        Accept: "application/json",
       },
     });
 
-    const data = await res.json(); 
+    const data = await res.json();
 
     if (!res.ok) {
       return {
@@ -165,7 +161,6 @@ export async function getCurrentVerificationUser() {
       success: true,
       data: data,
     };
-
   } catch (error) {
     console.error(error);
     return {

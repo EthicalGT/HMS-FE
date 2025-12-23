@@ -32,7 +32,6 @@
   color: #fff;
   text-align: center;
   flex-direction: column;
-
 }
 
 .card-header .icon {
@@ -45,7 +44,6 @@
   opacity: 0.9;
   padding: 10px 0px;
 }
-
 
 .photo-upload {
   display: flex;
@@ -83,7 +81,6 @@
 .photo-placeholder span {
   margin-top: 4px;
 }
-
 
 /* Tabs */
 .tabs {
@@ -182,8 +179,6 @@ select {
   border-radius: 6px;
   border: 1px solid #ccc;
   outline: none;
-
-
 }
 
 /*select:hover {
@@ -199,7 +194,6 @@ select {
     grid-template-columns: 1fr;
   }
 }
-
 
 .status {
   background: #fff3e0;
@@ -255,14 +249,13 @@ select {
   background-color: white;
 }
 
-
 .input-group input:focus,
 .input-group select:focus {
   border-color: #2563eb;
 }
 
-.input-group input:focus~.input-icon,
-.input-group select:focus~.input-icon {
+.input-group input:focus ~ .input-icon,
+.input-group select:focus ~ .input-icon {
   color: #2563eb;
 }
 

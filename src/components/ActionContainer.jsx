@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "../assets/css/ActionContainer.css";
 import user from "../assets/img/user.png";
-import { registerHawkerUser, loginHawkerUser, registerVendorUser, loginVendorUser } from "../api/auth";
+import {
+  registerHawkerUser,
+  loginHawkerUser,
+  registerVendorUser,
+  loginVendorUser,
+} from "../api/auth";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,12 +20,11 @@ import {
   MapPin,
   Layers,
   Building2,
-  Store
+  Store,
 } from "lucide-react";
 
 function ActionContainer() {
-
-  const[loading,setLoading]=useState("false");
+  const [loading, setLoading] = useState("false");
   const [activeTab, setActiveTab] = useState("signin");
   const [role, setRole] = useState("hawker");
   const currentState = activeTab === "signin" ? "HMS Sign In" : "HMS Sign Up";
@@ -38,26 +42,52 @@ function ActionContainer() {
     zone: "",
     product_category: "",
     gst_number: "",
-    Firm_name: ""
+    Firm_name: "",
   });
 
   const [loginData, setLoginData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
-
   const indianStates = [
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
-    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
-    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya",
-    "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim",
-    "Tamil Nadu", "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
-    "Andaman and Nicobar Islands", "Chandigarh",
-    "Dadra and Nagar Haveli and Daman and Diu", "Delhi", "Jammu and Kashmir",
-    "Ladakh", "Lakshadweep", "Puducherry"
+    "Andhra Pradesh",
+    "Arunachal Pradesh",
+    "Assam",
+    "Bihar",
+    "Chhattisgarh",
+    "Goa",
+    "Gujarat",
+    "Haryana",
+    "Himachal Pradesh",
+    "Jharkhand",
+    "Karnataka",
+    "Kerala",
+    "Madhya Pradesh",
+    "Maharashtra",
+    "Manipur",
+    "Meghalaya",
+    "Mizoram",
+    "Nagaland",
+    "Odisha",
+    "Punjab",
+    "Rajasthan",
+    "Sikkim",
+    "Tamil Nadu",
+    "Telangana",
+    "Tripura",
+    "Uttar Pradesh",
+    "Uttarakhand",
+    "West Bengal",
+    "Andaman and Nicobar Islands",
+    "Chandigarh",
+    "Dadra and Nagar Haveli and Daman and Diu",
+    "Delhi",
+    "Jammu and Kashmir",
+    "Ladakh",
+    "Lakshadweep",
+    "Puducherry",
   ];
-
 
   /* ---------- REGEX ---------- */
   const regex = {
@@ -69,7 +99,7 @@ function ActionContainer() {
     city: /^[A-Za-z ]{2,50}$/,
     state: /^[A-Za-z ]{2,50}$/,
     pincode: /^\d{6}$/,
-    zone: /^[A-Za-z0-9 ]{2,30}$/
+    zone: /^[A-Za-z0-9 ]{2,30}$/,
   };
 
   /* ---------- TOAST ---------- */
@@ -87,76 +117,90 @@ function ActionContainer() {
 
   /* ---------- VALIDATIONS ---------- */
   const validateSignup = () => {
-    if (!regex.full_name.test(signupData.full_name)) return showError("Invalid full name"), false;
-    if (!regex.phone_number.test(signupData.phone_number)) return showError("Invalid phone number"), false;
-    if (!regex.email.test(signupData.email)) return showError("Invalid email"), false;
+    if (!regex.full_name.test(signupData.full_name))
+      return (showError("Invalid full name"), false);
+    if (!regex.phone_number.test(signupData.phone_number))
+      return (showError("Invalid phone number"), false);
+    if (!regex.email.test(signupData.email))
+      return (showError("Invalid email"), false);
     if (!regex.password.test(signupData.password))
-      return showError("Password must contain uppercase, lowercase, number & special char"), false;
-    if (!regex.aadhar_number.test(signupData.aadhar_number)) return showError("Invalid Aadhaar"), false;
-    if (!regex.city.test(signupData.city)) return showError("Invalid city"), false;
-    if (!regex.state.test(signupData.state)) return showError("Invalid state"), false;
-    if (!regex.pincode.test(signupData.pincode)) return showError("Invalid pincode"), false;
-    if (!regex.zone.test(signupData.zone)) return showError("Invalid zone"), false;
+      return (
+        showError(
+          "Password must contain uppercase, lowercase, number & special char",
+        ),
+        false
+      );
+    if (!regex.aadhar_number.test(signupData.aadhar_number))
+      return (showError("Invalid Aadhaar"), false);
+    if (!regex.city.test(signupData.city))
+      return (showError("Invalid city"), false);
+    if (!regex.state.test(signupData.state))
+      return (showError("Invalid state"), false);
+    if (!regex.pincode.test(signupData.pincode))
+      return (showError("Invalid pincode"), false);
+    if (!regex.zone.test(signupData.zone))
+      return (showError("Invalid zone"), false);
     return true;
   };
 
   const validateLogin = () => {
-    if (!regex.email.test(loginData.email)) return showError("Invalid email"), false;
-    if (loginData.password.length < 8) return showError("Password too short"), false;
+    if (!regex.email.test(loginData.email))
+      return (showError("Invalid email"), false);
+    if (loginData.password.length < 8)
+      return (showError("Password too short"), false);
     return true;
   };
 
   /* ---------- SUBMIT ---------- */
   const handleSignupSubmitHawker = async (e) => {
-  e.preventDefault();
-  if (!validateSignup()) return;
+    e.preventDefault();
+    if (!validateSignup()) return;
 
-  const res = await registerHawkerUser({ ...signupData, role });
+    const res = await registerHawkerUser({ ...signupData, role });
 
-  if (res.status === "success") {
-    showSuccess(res.message || "Registration successful.");
+    if (res.status === "success") {
+      showSuccess(res.message || "Registration successful.");
 
-    if (res.redirectTo) {
-      window.location.href = res.redirectTo;
+      if (res.redirectTo) {
+        window.location.href = res.redirectTo;
+      }
+    } else {
+      showError(res?.message || "Registration failed");
     }
-  } else {
-    showError(res?.message || "Registration failed");
-  }
-};
+  };
 
-
-const handleLoginSubmitHawker = async (e) => {
+  const handleLoginSubmitHawker = async (e) => {
     e.preventDefault();
     if (!validateLogin()) return;
 
-    
     const res = await loginHawkerUser({ ...loginData, role });
     if (res?.token) {
       localStorage.setItem("token", res.token);
       showSuccess("Login successful.");
+      setTimeout(() => {
+        window.location = res.redirectTo;
+      }, 2000);
     } else {
       showError(res.message || "Login failed");
     }
   };
 
+  const handleSignupSubmitVendor = async (e) => {
+    e.preventDefault();
+    if (!validateSignup()) return;
 
-const handleSignupSubmitVendor = async (e) => {
-  e.preventDefault();
-  if (!validateSignup()) return;
+    const res = await registerVendorUser({ ...signupData, role });
 
-  const res = await registerVendorUser({ ...signupData, role });
+    if (res.status === "success") {
+      showSuccess(res.message || "Registration successful.");
 
-  if (res.status === "success") {
-    showSuccess(res.message || "Registration successful.");
-
-    if (res.redirectTo) {
-      window.location.href = res.redirectTo;
+      if (res.redirectTo) {
+        window.location.href = res.redirectTo;
+      }
+    } else {
+      showError(res?.message || "Registration failed");
     }
-  } else {
-    showError(res?.message || "Registration failed");
-  }
-};
-
+  };
 
   const handleLoginSubmitVendor = async (e) => {
     e.preventDefault();
@@ -166,6 +210,7 @@ const handleSignupSubmitVendor = async (e) => {
     if (res?.token) {
       localStorage.setItem("token", res.token);
       showSuccess("Login successful.");
+      window.location = res.redirectTo;
     } else {
       showError(res.message || "Login failed");
     }
@@ -178,17 +223,40 @@ const handleSignupSubmitVendor = async (e) => {
       <div className="card">
         <div className="card-header">
           <h2>{currentState}</h2>
-          <p>HMS service usage needs authentication kindly verify with your credentials.</p>
+          <p>
+            HMS service usage needs authentication kindly verify with your
+            credentials.
+          </p>
         </div>
 
         <div className="tabs">
-          <button className={activeTab === "signup" ? "tab active" : "tab"} onClick={() => setActiveTab("signup")}>Sign Up</button>
-          <button className={activeTab === "signin" ? "tab active" : "tab"} onClick={() => setActiveTab("signin")}>Sign In</button>
+          <button
+            className={activeTab === "signup" ? "tab active" : "tab"}
+            onClick={() => setActiveTab("signup")}
+          >
+            Sign Up
+          </button>
+          <button
+            className={activeTab === "signin" ? "tab active" : "tab"}
+            onClick={() => setActiveTab("signin")}
+          >
+            Sign In
+          </button>
         </div>
 
         <div className="roles">
-          <button className={role === "hawker" ? "role active" : "role"} onClick={() => setRole("hawker")}>Hawker</button>
-          <button className={role === "vendor" ? "role active" : "role"} onClick={() => setRole("vendor")}>Vendor</button>
+          <button
+            className={role === "hawker" ? "role active" : "role"}
+            onClick={() => setRole("hawker")}
+          >
+            Hawker
+          </button>
+          <button
+            className={role === "vendor" ? "role active" : "role"}
+            onClick={() => setRole("vendor")}
+          >
+            Vendor
+          </button>
         </div>
 
         <div className="photo-upload">
@@ -199,34 +267,112 @@ const handleSignupSubmitVendor = async (e) => {
 
         {/* ---------- SIGN UP ---------- */}
         {activeTab === "signup" && (
-          <form className="form" onSubmit={role === "hawker" 
-    ? handleSignupSubmitHawker 
-    : handleSignupSubmitVendor}>
+          <form
+            className="form"
+            onSubmit={
+              role === "hawker"
+                ? handleSignupSubmitHawker
+                : handleSignupSubmitVendor
+            }
+          >
             <h4>PERSONAL DETAILS</h4>
 
-            <div className="input-group"><User className="input-icon" /><input name="full_name" placeholder="Full Name" onChange={handleSignupChange} /></div>
-            <div className="input-group"><Phone className="input-icon" /><input name="phone_number" placeholder="Phone Number" maxLength={10} onChange={handleSignupChange} /></div>
-            <div className="input-group"><Mail className="input-icon" /><input name="email" type="email" placeholder="Email" onChange={handleSignupChange} /></div>
-            <div className="input-group"><Lock className="input-icon" /><input name="password" type="password" placeholder="Password" onChange={handleSignupChange} /></div>
+            <div className="input-group">
+              <User className="input-icon" />
+              <input
+                name="full_name"
+                placeholder="Full Name"
+                onChange={handleSignupChange}
+              />
+            </div>
+            <div className="input-group">
+              <Phone className="input-icon" />
+              <input
+                name="phone_number"
+                placeholder="Phone Number"
+                maxLength={10}
+                onChange={handleSignupChange}
+              />
+            </div>
+            <div className="input-group">
+              <Mail className="input-icon" />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                onChange={handleSignupChange}
+              />
+            </div>
+            <div className="input-group">
+              <Lock className="input-icon" />
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={handleSignupChange}
+              />
+            </div>
 
             <h4>IDENTITY</h4>
-            <div className="input-group"><Hash className="input-icon" /><input name="aadhar_number" placeholder="Aadhaar Number" maxLength={12} onChange={handleSignupChange} /></div>
+            <div className="input-group">
+              <Hash className="input-icon" />
+              <input
+                name="aadhar_number"
+                placeholder="Aadhaar Number"
+                maxLength={12}
+                onChange={handleSignupChange}
+              />
+            </div>
 
             <h4>ADDRESS</h4>
-            <textarea name="address" placeholder="Address" onChange={handleSignupChange}></textarea>
+            <textarea
+              name="address"
+              placeholder="Address"
+              onChange={handleSignupChange}
+            ></textarea>
 
-            <div className="input-group"><MapPin className="input-icon" /><input name="city" placeholder="City" onChange={handleSignupChange} /></div>
-            <div className="input-group"><MapPin className="input-icon" /><input name="pincode" placeholder="Pincode" maxLength={6} onChange={handleSignupChange} /></div>
-            <div className="input-group" id='stateSelector'>
+            <div className="input-group">
               <MapPin className="input-icon" />
-              <select name="state" onChange={handleSignupChange} defaultValue="">
-                <option value="" disabled>Select State / UT</option>
-                {indianStates.map(state => (
-                  <option key={state} value={state}>{state}</option>
+              <input
+                name="city"
+                placeholder="City"
+                onChange={handleSignupChange}
+              />
+            </div>
+            <div className="input-group">
+              <MapPin className="input-icon" />
+              <input
+                name="pincode"
+                placeholder="Pincode"
+                maxLength={6}
+                onChange={handleSignupChange}
+              />
+            </div>
+            <div className="input-group" id="stateSelector">
+              <MapPin className="input-icon" />
+              <select
+                name="state"
+                onChange={handleSignupChange}
+                defaultValue=""
+              >
+                <option value="" disabled>
+                  Select State / UT
+                </option>
+                {indianStates.map((state) => (
+                  <option key={state} value={state}>
+                    {state}
+                  </option>
                 ))}
               </select>
             </div>
-            <div className="input-group"><MapPin className="input-icon" /><input name="zone" placeholder="Zone" onChange={handleSignupChange} /></div>
+            <div className="input-group">
+              <MapPin className="input-icon" />
+              <input
+                name="zone"
+                placeholder="Zone"
+                onChange={handleSignupChange}
+              />
+            </div>
 
             {role === "vendor" && (
               <>
@@ -234,7 +380,11 @@ const handleSignupSubmitVendor = async (e) => {
 
                 <div className="input-group">
                   <Layers className="input-icon" />
-                  <select name="product_category" value={signupData.product_category} onChange={handleSignupChange}>
+                  <select
+                    name="product_category"
+                    value={signupData.product_category}
+                    onChange={handleSignupChange}
+                  >
                     <option value="">Select Product Category</option>
                     <option value="vegetables">Vegetables</option>
                     <option value="beverage">Beverage</option>
@@ -251,8 +401,23 @@ const handleSignupSubmitVendor = async (e) => {
                   </select>
                 </div>
 
-                <div className="input-group"><Building2 className="input-icon" /><input name="gst_number" placeholder="GST Number" maxLength={15} onChange={handleSignupChange} /></div>
-                <div className="input-group"><Store className="input-icon" /><input name="Firm_name" placeholder="Firm Name" onChange={handleSignupChange} /></div>
+                <div className="input-group">
+                  <Building2 className="input-icon" />
+                  <input
+                    name="gst_number"
+                    placeholder="GST Number"
+                    maxLength={15}
+                    onChange={handleSignupChange}
+                  />
+                </div>
+                <div className="input-group">
+                  <Store className="input-icon" />
+                  <input
+                    name="Firm_name"
+                    placeholder="Firm Name"
+                    onChange={handleSignupChange}
+                  />
+                </div>
               </>
             )}
 
@@ -262,14 +427,33 @@ const handleSignupSubmitVendor = async (e) => {
 
         {/* ---------- SIGN IN ---------- */}
         {activeTab === "signin" && (
-          <form className="form" 
-
-          onSubmit={role === "hawker" 
-    ? handleLoginSubmitHawker 
-    : handleLoginSubmitVendor}>
+          <form
+            className="form"
+            onSubmit={
+              role === "hawker"
+                ? handleLoginSubmitHawker
+                : handleLoginSubmitVendor
+            }
+          >
             <h4>VERIFY CREDENTIALS</h4>
-            <div className="input-group"><Mail className="input-icon" /><input name="email" type="email" placeholder="Email" onChange={handleLoginChange} /></div>
-            <div className="input-group"><Lock className="input-icon" /><input name="password" type="password" placeholder="Password" onChange={handleLoginChange} /></div>
+            <div className="input-group">
+              <Mail className="input-icon" />
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                onChange={handleLoginChange}
+              />
+            </div>
+            <div className="input-group">
+              <Lock className="input-icon" />
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={handleLoginChange}
+              />
+            </div>
             <button className="submit-btn">Login as {role}</button>
           </form>
         )}

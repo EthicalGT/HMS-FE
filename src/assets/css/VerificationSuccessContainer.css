@@ -1,74 +1,74 @@
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
 }
 
 .success-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .success-card {
-    background-color: #ffffff;
-    padding: 40px 60px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 .success-icon {
-    width: 70px;
-    height: 70px;
-    background-color: #2563eb;
-    border-radius: 50%;
-    margin: 0 auto 20px auto;
+  width: 70px;
+  height: 70px;
+  background-color: #2563eb;
+  border-radius: 50%;
+  margin: 0 auto 20px auto;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    color: white;
-    font-size: 36px;
+  color: white;
+  font-size: 36px;
 
-    opacity: 0;
-    transform: scale(0.5);
-    transition: all 0.4s ease-in-out;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease-in-out;
 }
 
 .success-icon.show {
-    opacity: 1;
-    transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
 
 .success-icon img {
-    width: 36px;
-    height: 36px;
-    animation: rotateIn 0.6s ease forwards;
+  width: 36px;
+  height: 36px;
+  animation: rotateIn 0.6s ease forwards;
 }
 
 @keyframes rotateIn {
-    0% {
-        opacity: 0;
-        transform: rotate(-180deg) scale(0.3);
-    }
+  0% {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.3);
+  }
 
-    100% {
-        opacity: 1;
-        transform: rotate(0) scale(1);
-    }
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
 }
 
 .success-card h2 {
-    margin: 0;
-    font-size: 24px;
-    color: #111827;
+  margin: 0;
+  font-size: 24px;
+  color: #111827;
 }
 
 .success-card p {
-    margin-top: 8px;
-    font-size: 16px;
-    color: #6b7280;
+  margin-top: 8px;
+  font-size: 16px;
+  color: #6b7280;
 }

@@ -63,7 +63,7 @@ const OtpVerificationContainer = () => {
         } else {
           setSessionExpired(true);
           showError(
-            "No active OTP session found. Please register again after 10 minutes."
+            "No active OTP session found. Please register again after 10 minutes.",
           );
 
           setTimeout(() => {
@@ -175,8 +175,8 @@ const OtpVerificationContainer = () => {
               {sessionExpired
                 ? "Session Expired"
                 : loading
-                ? "Verifying..."
-                : "Verify OTP"}
+                  ? "Verifying..."
+                  : "Verify OTP"}
             </button>
           </form>
 
