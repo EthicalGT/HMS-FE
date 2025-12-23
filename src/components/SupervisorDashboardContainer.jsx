@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../assets/css/DashboardContainer.css";
+import "../assets/css/SupervisorDashboardContainer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBell,

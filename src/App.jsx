@@ -6,25 +6,32 @@ import SuccessVerificationContainer from "./components/VerificationSuccessContai
 import CompanyProfileContainer from "./components/CompanyProfileContainer";
 import { Routes, Route } from "react-router-dom";
 import HawkerDashboardContainer from "./components/HawkerDashboardContainer";
-import VendorDashboardContainer from "./components/VendorDashboardContainer";
 import SupervisorDashboardContainer from "./components/SupervisorDashboardContainer";
-
 
 function App() {
   return (
     <>
       <Routes>
+        {/* Universal Routes*/}
+        <Route path="/verify_otp" element={<OtpVerification />} />
         <Route path="/" element={<ActionContainer />} />
+        <Route path="/success_otp" element={<SuccessVerificationContainer />} />
+
+        {/* Hawker Routes*/}
         <Route
-          path="/hawker_dashboard"
+          path="/hawker/dashboard"
           element={<HawkerDashboardContainer />}
         />
-        <Route path="/verify_otp" element={<OtpVerification />} />
-        <Route path="/company_profile" element={<CompanyProfileContainer />} />
-        <Route path="/success_otp" element={<SuccessVerificationContainer />} />
-        <Route path="/supervisor_dashboard" element={<SupervisorDashboardContainer />} />
 
-
+        {/* Supervisor Routes*/}
+        <Route
+          path="/supervisor/dashboard"
+          element={<SupervisorDashboardContainer />}
+        />
+        <Route
+          path="/supervisor/company_profile"
+          element={<CompanyProfileContainer />}
+        />
       </Routes>
     </>
   );
