@@ -197,33 +197,19 @@ export default function HawkerDashboardContainer() {
 
           {activeView === "inventory" && <AssignedInventoryContainer />}
 
-          {activeView === "sales" && (
-            <SalesUpdateContainer />
-          )}
+          {activeView === "sales" && <SalesUpdateContainer />}
 
-          {activeView === "wallet" && (
-            <WalletSettlementContainer />
-          )}
+          {activeView === "wallet" && <WalletSettlementContainer />}
 
-          {activeView === "request" && (
-            <InventoryRequestContainer />
-          )}
+          {activeView === "request" && <InventoryRequestContainer />}
 
-          {activeView === "assets" && (
-            <AssetMaintenanceContainer />
-          )}
+          {activeView === "assets" && <AssetMaintenanceContainer />}
 
-          {activeView === "messages" && (
-            <SupervisorInteractionContainer />
-          )}
+          {activeView === "messages" && <SupervisorInteractionContainer />}
 
-          {activeView === "notifications" && (
-            <NotificationsContainer />
-          )}
+          {activeView === "notifications" && <NotificationsContainer />}
 
-          {activeView === "settings" && (
-            <SettingsSecurityContainer />
-          )}
+          {activeView === "settings" && <SettingsSecurityContainer />}
         </div>
       </div>
     </div>

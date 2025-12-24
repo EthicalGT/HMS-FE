@@ -53,7 +53,9 @@ export default function AssetMaintenanceContainer() {
               <td>{asset.id}</td>
               <td>{asset.assignedOn}</td>
               <td>
-                <span className={`asset-status ${asset.condition.replace(" ", "-").toLowerCase()}`}>
+                <span
+                  className={`asset-status ${asset.condition.replace(" ", "-").toLowerCase()}`}
+                >
                   {asset.condition}
                 </span>
               </td>
@@ -76,9 +78,7 @@ export default function AssetMaintenanceContainer() {
           <h3>Report Issue – {selectedAsset.name}</h3>
 
           <div className="maintenance-form">
-            <textarea
-              placeholder="Describe the issue or damage in detail..."
-            ></textarea>
+            <textarea placeholder="Describe the issue or damage in detail..."></textarea>
 
             <div className="maintenance-actions">
               <button

@@ -8,8 +8,20 @@ export default function SalesUpdateContainer() {
     hawker: "Ganesh Telore",
     supervisorRemark: "Shortfall observed in Tomatoes",
     items: [
-      { name: "Apples", category: "Fruits", assignedQty: 50, soldQty: 45, price: 40 },
-      { name: "Tomatoes", category: "Vegetables", assignedQty: 30, soldQty: 22, price: 20 },
+      {
+        name: "Apples",
+        category: "Fruits",
+        assignedQty: 50,
+        soldQty: 45,
+        price: 40,
+      },
+      {
+        name: "Tomatoes",
+        category: "Vegetables",
+        assignedQty: 30,
+        soldQty: 22,
+        price: 20,
+      },
     ],
   };
 
@@ -30,8 +42,12 @@ export default function SalesUpdateContainer() {
       </div>
 
       <div className="sales-meta">
-        <span><b>Submitted:</b> {data.submittedAt}</span>
-        <span><b>Hawker:</b> {data.hawker}</span>
+        <span>
+          <b>Submitted:</b> {data.submittedAt}
+        </span>
+        <span>
+          <b>Hawker:</b> {data.hawker}
+        </span>
       </div>
 
       <table className="sales-table">

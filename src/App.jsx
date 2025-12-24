@@ -7,6 +7,7 @@ import CompanyProfileContainer from "./components/CompanyProfileContainer";
 import { Routes, Route } from "react-router-dom";
 import HawkerDashboardContainer from "./components/HawkerDashboardContainer";
 import SupervisorDashboardContainer from "./components/SupervisorDashboardContainer";
+import AdminPanelContainer from "./components/AdminPanelContainer";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           path="/supervisor/company_profile"
           element={<CompanyProfileContainer />}
         />
+
+        {/* Admin Routes*/}
+        <Route path="/admin/dashboard" element={<AdminPanelContainer />} />
       </Routes>
     </>
   );

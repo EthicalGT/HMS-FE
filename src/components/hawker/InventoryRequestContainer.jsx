@@ -40,8 +40,12 @@ export default function InventoryRequestContainer() {
 
       {/* Request Meta */}
       <div className="inventory-meta">
-        <span><b>Request ID:</b> {request.requestId}</span>
-        <span><b>Requested At:</b> {request.requestedAt}</span>
+        <span>
+          <b>Request ID:</b> {request.requestId}
+        </span>
+        <span>
+          <b>Requested At:</b> {request.requestedAt}
+        </span>
       </div>
 
       {/* Items Table */}
@@ -63,9 +67,7 @@ export default function InventoryRequestContainer() {
               <td>{item.requestedQty}</td>
               <td>{item.approvedQty ?? "-"}</td>
               <td>
-                <span className="delivery-status">
-                  {item.deliveryStatus}
-                </span>
+                <span className="delivery-status">{item.deliveryStatus}</span>
               </td>
             </tr>
           ))}
@@ -83,12 +85,8 @@ export default function InventoryRequestContainer() {
 
       {/* Actions */}
       <div className="inventory-actions">
-        <button className="inventory-btn-outline">
-          View Request Timeline
-        </button>
-        <button className="inventory-btn-primary">
-          View Request History
-        </button>
+        <button className="inventory-btn-outline">View Request Timeline</button>
+        <button className="inventory-btn-primary">View Request History</button>
       </div>
     </div>
   );

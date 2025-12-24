@@ -17,8 +17,7 @@ export default function SupervisorInteractionContainer() {
     },
     {
       title: "Stock Reporting Update",
-      message:
-        "Daily stock updates must be completed before 9 PM.",
+      message: "Daily stock updates must be completed before 9 PM.",
       date: "20 Dec 2025",
     },
   ];
@@ -61,10 +60,18 @@ export default function SupervisorInteractionContainer() {
       <div className="supervisor-card">
         <h2>Assigned Supervisor</h2>
         <div className="supervisor-info">
-          <span><b>Name:</b> {supervisor.name}</span>
-          <span><b>Supervisor ID:</b> {supervisor.id}</span>
-          <span><b>Zone:</b> {supervisor.zone}</span>
-          <span><b>Contact:</b> {supervisor.contact}</span>
+          <span>
+            <b>Name:</b> {supervisor.name}
+          </span>
+          <span>
+            <b>Supervisor ID:</b> {supervisor.id}
+          </span>
+          <span>
+            <b>Zone:</b> {supervisor.zone}
+          </span>
+          <span>
+            <b>Contact:</b> {supervisor.contact}
+          </span>
         </div>
       </div>
 
@@ -100,7 +107,9 @@ export default function SupervisorInteractionContainer() {
                 <td>{sale.saleId}</td>
                 <td>{sale.date}</td>
                 <td>
-                  <span className={`approval-status ${sale.status.toLowerCase()}`}>
+                  <span
+                    className={`approval-status ${sale.status.toLowerCase()}`}
+                  >
                     {sale.status}
                   </span>
                 </td>
@@ -132,9 +141,7 @@ export default function SupervisorInteractionContainer() {
                 <td>{p.date}</td>
                 <td>{p.amount ?? "-"}</td>
                 <td>
-                  <span className="penalty-status">
-                    {p.status}
-                  </span>
+                  <span className="penalty-status">{p.status}</span>
                 </td>
               </tr>
             ))}

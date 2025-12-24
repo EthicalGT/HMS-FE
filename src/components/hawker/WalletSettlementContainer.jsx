@@ -67,9 +67,7 @@ export default function WalletSettlementInsightsContainer() {
           <b>Last Settlement:</b> {wallet.lastSettlement}
         </div>
         {wallet.settlementStatus === "Pending" && (
-          <div className="pending-note">
-            ⚠️ Settlement is pending with SPO
-          </div>
+          <div className="pending-note">⚠️ Settlement is pending with SPO</div>
         )}
       </div>
 

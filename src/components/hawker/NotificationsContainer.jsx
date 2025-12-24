@@ -31,8 +31,7 @@ export default function NotificationsContainer() {
       id: 4,
       type: "supervisor",
       title: "Supervisor Notice",
-      message:
-        "Ensure daily sales are updated before 9 PM without delay.",
+      message: "Ensure daily sales are updated before 9 PM without delay.",
       time: "22 Dec 2025 • 04:20 PM",
       read: true,
     },
@@ -63,21 +62,13 @@ export default function NotificationsContainer() {
             className={`notification-card ${n.read ? "read" : "unread"}`}
           >
             <div className="notification-left">
-              <span className={`notification-icon ${n.type}`}>
-                ●
-              </span>
+              <span className={`notification-icon ${n.type}`}>●</span>
             </div>
 
             <div className="notification-body">
-              <div className="notification-title">
-                {n.title}
-              </div>
-              <p className="notification-message">
-                {n.message}
-              </p>
-              <span className="notification-time">
-                {n.time}
-              </span>
+              <div className="notification-title">{n.title}</div>
+              <p className="notification-message">{n.message}</p>
+              <span className="notification-time">{n.time}</span>
             </div>
 
             {!n.read && <span className="notification-dot"></span>}
