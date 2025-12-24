@@ -29,10 +29,6 @@ function App() {
           path="/supervisor/dashboard"
           element={<SupervisorDashboardContainer />}
         />
-        <Route
-          path="/supervisor/company_profile"
-          element={<CompanyProfileContainer />}
-        />
 
         {/* Admin Routes*/}
         <Route path="/admin/dashboard" element={<AdminPanelContainer />} />
