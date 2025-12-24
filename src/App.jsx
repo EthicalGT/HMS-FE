@@ -1,37 +1,41 @@
 import "./App.css";
 
 import ActionContainer from "./components/ActionContainer";
-import OtpVerification from "./components/OtpVerificationContainer";
+import OtpVerificationContainer from "./components/OtpVerificationContainer";
 import SuccessVerificationContainer from "./components/VerificationSuccessContainer";
-import CompanyProfileContainer from "./components/CompanyProfileContainer";
 import { Routes, Route } from "react-router-dom";
 import HawkerDashboardContainer from "./components/HawkerDashboardContainer";
 import SupervisorDashboardContainer from "./components/SupervisorDashboardContainer";
-import AdminPanelContainer from "./components/AdminPanelContainer";
+import VendorDashboardContainer from "./components/VendorDashboardContainer";
+
+
 
 function App() {
   return (
     <>
       <Routes>
         {/* Universal Routes*/}
-        <Route path="/verify_otp" element={<OtpVerification />} />
+        <Route path="/verify_otp" element={<OtpVerificationContainer />} />
         <Route path="/" element={<ActionContainer />} />
         <Route path="/success_otp" element={<SuccessVerificationContainer />} />
 
         {/* Hawker Routes*/}
         <Route
+          path="/vendor/dashboard"
+          element={<VendorDashboardContainer />}
+        />
+
+        {/* Vendor Routes*/}
+
+        <Route
           path="/hawker/dashboard"
           element={<HawkerDashboardContainer />}
         />
-
         {/* Supervisor Routes*/}
         <Route
           path="/supervisor/dashboard"
           element={<SupervisorDashboardContainer />}
         />
-
-        {/* Admin Routes*/}
-        <Route path="/admin/dashboard" element={<AdminPanelContainer />} />
       </Routes>
     </>
   );
