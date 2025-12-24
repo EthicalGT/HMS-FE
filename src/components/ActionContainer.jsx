@@ -174,11 +174,20 @@ function ActionContainer() {
     if (!validateLogin()) return;
 
     const res = await loginHawkerUser({ ...loginData, role });
-    if (res?.token) {
+    /*if (res?.token) {
       localStorage.setItem("token", res.token);
       showSuccess("Login successful.");
       setTimeout(() => {
         window.location = res.redirectTo;
+      }, 2000);
+    } else {
+      showError(res.message || "Login failed");
+    }*/
+    if (res.status === "failed") {
+      //localStorage.setItem("token", res.token);
+      showSuccess("Login successful.");
+      setTimeout(() => {
+        window.location = '/hawker/dashboard';
       }, 2000);
     } else {
       showError(res.message || "Login failed");
@@ -207,10 +216,19 @@ function ActionContainer() {
     if (!validateLogin()) return;
 
     const res = await loginVendorUser({ ...loginData, role });
-    if (res?.token) {
+    /*if (res?.token) {
       localStorage.setItem("token", res.token);
       showSuccess("Login successful.");
       window.location = res.redirectTo;
+    } else {
+      showError(res.message || "Login failed");
+    }*/
+    if (res.status === "failed") {
+      //localStorage.setItem("token", res.token);
+      showSuccess("Login successful.");
+      setTimeout(() => {
+        window.location = '/vendor/dashboard';
+      }, 2000);
     } else {
       showError(res.message || "Login failed");
     }
